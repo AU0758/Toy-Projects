@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+
+    padding: 0px;
+    margin: 0px;
+
+    background-image: url('../public/Image.jpeg');
+    background-size: cover; 
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid rgb(255, 255, 255, .25);
+
+  font-size: 2rem;
+
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  outline: none;
+  background-color: rgb(255, 255, 255, .55);
+}
+
+.calculator-grid {
+  display: grid;
+
+  justify-content: center;
+  align-content: center;
+
+  min-height: 100vh;
+
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.output {
+  grid-column: 1/-1;
+
+  border-radius: 25px 25px 0px 0px;
+
+  background-color: rgb(0, 0, 0, .75);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+
+  word-wrap: break-word;
+  word-break: all;
+
+  flex-direction: column;
+
+  padding: 10px;
+}
+
+.output .previous-operand {
+  color: rgb(255, 255, 255, .75);
+
+  font-size: 1.5rem;
+}
+.output .current-operand {
+  color: rgb(255, 255, 255);
+
+  font-size: 2rem;
+}
+
+.calculator-grid > button:hover {
+  color: rgba(0, 0, 0, 0.8);
+  background-color: white;
+}
+.calculator-grid > button:active {
+  color: white;
+
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.b{
+  grid-column: span 2;
+}
+.b2 {
+  grid-column: span 2;
+  border-radius: 0px 0px 25px 0px;
+}
+
+.b1{
+  border-radius: 0px 0px 0px 25px;
+}
